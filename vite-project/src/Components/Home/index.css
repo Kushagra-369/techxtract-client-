@@ -1,0 +1,9 @@
+@keyframes border-glow {
+  0% { border-color: #06b6d4; box-shadow: 0 0 10px #06b6d4; }
+  50% { border-color: #f50c0c; box-shadow: 0 0 20px #ef0606; }
+  100% { border-color: #07f863; box-shadow: 0 0 10px #07f863; }
+}
+
+.animate-border-glow {
+  animation: border-glow 3s linear infinite;
+}
