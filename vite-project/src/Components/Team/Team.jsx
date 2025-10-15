@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaUsers, FaPaintBrush, FaCog, FaShareAlt, FaLaptopCode } from 'react-icons/fa';
+import image4 from '../../assets/images/image4.jpg';
 
 export default function Team() {
     const departments = [
@@ -37,7 +38,6 @@ export default function Team() {
 
     return (
         <div className="bg-black text-white min-h-screen px-6 py-10 pt-[180px] sm:pt-[200px] lg:pt-32">
-            {/* pt-[180px] for mobile, sm:pt-[200px] for small screens, lg:pt-32 for desktop */}
 
             {/* Page Heading */}
             <h1 className="text-4xl sm:text-5xl font-bold text-cyan-400 text-center mb-12 animate-fade-in">
@@ -66,7 +66,7 @@ export default function Team() {
             </div>
 
             {/* Second row: last 2 departments */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 justify-items-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 justify-items-center mb-12">
                 {departments.slice(3).map((dept, index) => (
                     <div
                         key={index + 3}
@@ -85,6 +85,19 @@ export default function Team() {
                     </div>
                 ))}
             </div>
+
+            {/* President Section */}
+            <div className="flex flex-col items-center mt-16">
+                <h2 className="text-3xl sm:text-4xl font-bold text-cyan-400 mb-6">
+                    President of the Society
+                </h2>
+                <img
+                    src={image4}
+                    alt="President"
+                    className="w-48 h-45 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-4xl border-4 border-cyan-400 object-cover shadow-xl animate-border-glow"
+                />
+            </div>
+
         </div>
     );
 }
