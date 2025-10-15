@@ -22,9 +22,8 @@ export default function Navbar() {
         className="bg-gray-900 px-5 py-4 flex flex-col sm:flex-row items-center justify-between fixed w-full top-0 z-50 shadow-lg"
       >
 
-        {/* Top Row: Logo + Text + Hamburger */}
+        {/* Logo + Hamburger */}
         <div className="flex items-center justify-between w-full sm:w-auto relative">
-          {/* Logo + Text */}
           <div className="flex items-center gap-3 mx-auto sm:mx-0">
             <img src={image1} alt="Logo" className="w-14 h-14 rounded-full" />
             <div className="flex items-center gap-1 text-white font-bold" style={{ fontFamily: 'Pacifico' }}>
@@ -44,24 +43,30 @@ export default function Navbar() {
 
           {/* Mobile Dropdown Menu */}
           {menuOpen && (
-            <div className="absolute top-full right-0 mt-2 bg-gray-900 border border-cyan-400 rounded-lg shadow-lg flex flex-col w-40 z-50">
+            <div className="absolute top-full text-white right-0 mt-2 bg-gray-900 border border-cyan-400 rounded-lg shadow-lg flex flex-col w-40 z-50">
               {data.map((item, index) => (
-                <Link
+                <motion.div
                   key={index}
-                  to={item.link}
-                  className="text-white px-4 py-2 hover:bg-cyan-400 hover:text-black font-semibold border-b border-gray-700 last:border-b-0"
-                  onClick={() => setMenuOpen(false)} // close menu on click
+                  whileHover={{ scale: 1.05, backgroundColor: "#06b6d4", color: "#000" }}
+                  className="px-4 py-2 font-semibold border-b border-gray-700 last:border-b-0 cursor-pointer"
                 >
-                  {item.name}
-                </Link>
+                  <Link
+                    to={item.link}
+                    onClick={() => setMenuOpen(false)}
+                    className="w-full block"
+                  >
+                    {item.name}
+                  </Link>
+                </motion.div>
               ))}
             </div>
           )}
         </div>
 
-        {/* Optional subtitle */}
-        <div className='text-white hover:text-cyan-400 text-xl font-bold text-center mt-2 sm:mt-0'
-             style={{ fontFamily: 'Pacifico' }}
+        {/* Optional Subtitle */}
+        <div
+          className="text-white hover:text-cyan-400 text-xl font-bold text-center mt-2 sm:mt-0"
+          style={{ fontFamily: 'Pacifico' }}
         >
           <h1>(Official Tech Society of CST Department)</h1>
           <h1>Grow And Learn</h1>
@@ -70,13 +75,13 @@ export default function Navbar() {
         {/* Desktop Links */}
         <div className="hidden sm:flex flex-row items-center space-x-6 mt-2 sm:mt-0">
           {data.map((item, index) => (
-            <Link
+            <motion.div
               key={index}
-              to={item.link}
-              className="text-white text-lg font-semibold hover:text-cyan-400"
+              whileHover={{ scale: 1.1, color: "#06b6d4" }}
+              className="text-white text-lg font-semibold cursor-pointer"
             >
-              {item.name}
-            </Link>
+              <Link to={item.link}>{item.name}</Link>
+            </motion.div>
           ))}
         </div>
 
