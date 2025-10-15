@@ -33,7 +33,9 @@ export default function Contact() {
   const [selected, setSelected] = useState(null);
 
   return (
-    <div className="bg-black min-h-screen flex flex-col items-center justify-center px-6 py-16 relative">
+    <div className="bg-black min-h-screen flex flex-col items-center justify-start px-6 py-16 
+                    pt-[220px] sm:pt-[240px] relative">
+      {/* pt-[220px] ensures spacing below fixed navbar */}
 
       <h1 className="text-4xl sm:text-5xl font-bold text-cyan-400 mb-12 animate-fade-in">
         Contact Us
