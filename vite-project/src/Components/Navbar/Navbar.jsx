@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import image1 from '../../assets/images/image1.jpg';
 
 export default function Navbar() {
@@ -45,13 +46,14 @@ export default function Navbar() {
           {menuOpen && (
             <div className="absolute top-full right-0 mt-2 bg-gray-900 border border-cyan-400 rounded-lg shadow-lg flex flex-col w-40 z-50">
               {data.map((item, index) => (
-                <a
+                <Link
                   key={index}
-                  href={item.link}
+                  to={item.link}
                   className="text-white px-4 py-2 hover:bg-cyan-400 hover:text-black font-semibold border-b border-gray-700 last:border-b-0"
+                  onClick={() => setMenuOpen(false)} // close menu on click
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
             </div>
           )}
@@ -68,13 +70,13 @@ export default function Navbar() {
         {/* Desktop Links */}
         <div className="hidden sm:flex flex-row items-center space-x-6 mt-2 sm:mt-0">
           {data.map((item, index) => (
-            <a
-              href={item.link}
+            <Link
               key={index}
+              to={item.link}
               className="text-white text-lg font-semibold hover:text-cyan-400"
             >
               {item.name}
-            </a>
+            </Link>
           ))}
         </div>
 
